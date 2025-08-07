@@ -9,7 +9,7 @@ name: OWASP Nest
 pitch: Your gateway to OWASP. Discover, engage, and help shape the future!
 type: code
 license:
-- MIT,wrde
+- MIT
 repositories:
 - description: Your gateway to OWASP. Discover, engage, and help shape the future!
   name: Nest
