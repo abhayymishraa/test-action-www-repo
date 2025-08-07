@@ -1,40 +1,22 @@
-# A descriptive name for the workflow, which will appear in the "Actions" tab of the GitHub repository.
 name: 'Validate OWASP Metadata File'
 
-# This section defines when the workflow will run.
 on:
-  # Run on pushes to the main branches.
   push:
-    branches: [ main, master ]
-    # CRITICAL: This 'paths' filter ensures the workflow only runs if one of
-    # the specified files has changed. This saves time and resources.
-    # Adjust the filename to match the one in YOUR repository.
+    branches: main
     paths:
-      - 'project.owasp.yaml'
+      - '*.owasp.yaml'
 
-  # Also run on any pull request that modifies one of the specified files.
   pull_request:
     paths:
-      - 'project.owasp.yaml'
+      - '*.owasp.yaml'
 
-# A workflow run is made up of one or more jobs that can run sequentially or in parallel.
 jobs:
-  # We define a single job called 'validate-metadata'.
   validate-metadata:
-    # The type of virtual machine to run the job on. 'ubuntu-latest' is a standard choice.
     runs-on: ubuntu-latest
-    
-    # A job contains a sequence of tasks called 'steps'.
+
     steps:
-      # Step 1: Check out the repository's code
-      # This step downloads a copy of your repository onto the runner,
-      # so the action can access the 'project.owasp.yaml' file.
       - name: Checkout Code
         uses: actions/checkout@v4
 
-      # Step 2: Run the reusable validation action
-      # This is where we call the action you built in the 'owasp/nest-schema' repository.
       - name: Validate OWASP Schema File
-        # The path to the reusable action. Format is 'owner/repo/path/to/action@version'.
-        # Using '@main' is fine for testing, but for production, it's best to use a specific version tag (e.g., @v1).
         uses: abhayymishraa/nest-schema/.github/actions/validate_owasp_schema@main
