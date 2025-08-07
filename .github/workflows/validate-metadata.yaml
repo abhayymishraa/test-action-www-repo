@@ -38,9 +38,3 @@ jobs:
         # The path to the reusable action. Format is 'owner/repo/path/to/action@version'.
         # Using '@main' is fine for testing, but for production, it's best to use a specific version tag (e.g., @v1).
         uses: abhayymishraa/nest-schema/.github/actions/validate_owasp_schema@main
-        
-        # This 'with' block provides the required inputs to the action.
-        with:
-          # The 'file-path' input is exactly what you defined in your action.yml.
-          # We provide the name of the file that needs to be validated.
-          file-path: 'project.owasp.yaml'
