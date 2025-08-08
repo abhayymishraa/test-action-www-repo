@@ -19,4 +19,4 @@ jobs:
         uses: actions/checkout@v4
 
       - name: Validate OWASP Schema File
-        uses: abhayymishraa/nest-schema/.github/actions/validate_owasp_schema@main
+        uses: abhayymishraa/nest-schema/.github/actions/validate@main
